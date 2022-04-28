@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="pytimeir",
-    version="0.0.2",
+    version="0.1",
     author="Saeed Ghadiri",
     author_email="saeed.ghadiri@gmail.com",
     description="Get events and holidays from time.ir",
