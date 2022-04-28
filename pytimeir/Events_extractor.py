@@ -8,7 +8,7 @@ base_url = 'https://www.time.ir/'
 post_str = "Year={year}&Month={month}&Base1=0&Base2=1&Base3=2&Responsive=true"
 
 
-class MonthEventsExtractor:
+class EventsExtractor:
     def __init__(self, year, month):
         self.year = year
         self.month = month
@@ -54,12 +54,8 @@ class MonthEventsExtractor:
         assert (df['month'] == self.month).all()
 
         df['jdate'] = df.apply(lambda x: jdatetime.date(self.year, x['month'], x['day']), axis=1)
-        df['jalai_date'] = df.apply(lambda x: x['jdate'].strftime('%Y%m%d'), axis=1)
+        df['jalali_date'] = df.apply(lambda x: x['jdate'].strftime('%Y%m%d'), axis=1)
         df['date'] = df.apply(lambda x: x['jdate'].togregorian(), axis=1)
 
-        df = df[['date', 'jalai_date', 'event', 'is_holiday']]
+        df = df[['date', 'jalali_date', 'event', 'is_holiday']]
         return df
-
-
-if __name__ == '__main__':
-    MonthEventsExtractor(year=1401, month=2).get_events()
