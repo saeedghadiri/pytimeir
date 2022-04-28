@@ -1,5 +1,0 @@
-requests
-pandas
-jdatetime
-beautifulsoup4
-Unidecode

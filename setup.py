@@ -1,19 +1,5 @@
 import setuptools
 
-# Read requirements.txt, ignore comments
-try:
-    REQUIRES = list()
-    f = open("requirements.txt", "rb")
-    for line in f.read().decode("utf-8").split("\n"):
-        line = line.strip()
-        if "#" in line:
-            line = line[: line.find("#")].strip()
-        if line:
-            REQUIRES.append(line)
-except FileNotFoundError:
-    print("'requirements.txt' not found!")
-    REQUIRES = list()
-
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
@@ -36,5 +22,11 @@ setuptools.setup(
     ],
     packages=['pytimeir'],
     python_requires=">=3.6",
-    install_requires=REQUIRES
+    install_requires=[
+        'requests',
+        'pandas',
+        'jdatetime',
+        'Unidecode',
+        'beautifulsoup4'
+    ]
 )
