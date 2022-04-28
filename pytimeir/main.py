@@ -1,4 +1,4 @@
-from .Events_extractor import EventsExtractor
+from .events_extractor import EventsExtractor
 import pandas as pd
 
 
