@@ -1,4 +1,4 @@
-from Events_extractor import EventsExtractor
+from .Events_extractor import EventsExtractor
 import pandas as pd
 
 
@@ -28,10 +28,3 @@ def get_events(start_year, end_year=None):
             events.append(EventsExtractor(year, month).get_events())
     events = pd.concat(events)
     return events
-
-
-if __name__ == "__main__":
-    ev_0 = get_holidays(1397, 1400)
-    ev_1 = get_events(1397, 1400)
-
-    print()

@@ -1,7 +1,7 @@
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
-from utils import retry, parse_date
+from .utils import retry, parse_date
 import jdatetime
 
 base_url = 'https://www.time.ir/'
