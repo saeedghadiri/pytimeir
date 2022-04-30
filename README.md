@@ -1,6 +1,6 @@
 # pytimeir
 
-[![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)
+[![Python ver](https://img.shields.io/pypi/pyversions/pytimeir.svg)](https://pypi.python.org/pypi/pytimeir)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 A simple package to get events and holidays from [time.ir](https://www.time.ir/)
