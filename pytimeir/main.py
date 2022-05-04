@@ -2,9 +2,20 @@ from .events_extractor import EventsExtractor
 import pandas as pd
 
 
-def get_holidays(start_year, end_year=None):
+def get_holidays(start_year: int, end_year=None):
     """
     Get holidays from start_year to end_year
+
+    Parameters
+    ----------
+    start_year : int
+        Start year
+    end_year : int
+        End year
+
+    Returns
+    -------
+    pd.DataFrame
     """
     if end_year is None:
         end_year = start_year
@@ -15,9 +26,20 @@ def get_holidays(start_year, end_year=None):
     return df
 
 
-def get_events(start_year, end_year=None):
+def get_events(start_year: int, end_year=None):
     """
     Get events from start_year to end_year
+
+    Parameters
+    ----------
+    start_year : int
+        Start year
+    end_year : int
+        End year
+
+    Returns
+    -------
+    pd.DataFrame
     """
     if end_year is None:
         end_year = start_year

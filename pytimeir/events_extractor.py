@@ -9,19 +9,49 @@ post_str = "Year={year}&Month={month}&Base1=0&Base2=1&Base3=2&Responsive=true"
 
 
 class EventsExtractor:
-    def __init__(self, year, month):
+    """
+    Extracts events from time.ir
+
+    Parameters
+    ----------
+    year : int
+        Year of events
+    month : int
+        Month of events
+
+    """
+
+    def __init__(self, year: int, month: int):
         self.year = year
         self.month = month
         self.url = base_url + '?' + post_str.format(year=year, month=month)
-        self.events = []
 
     @retry(retry_count=5, retry_delay=1)
     def _extract(self):
+        """
+        Extracts html from time.ir
+
+        Returns
+        -------
+        html : str
+        """
         r = requests.post(url=self.url)
         return r.text
 
     @staticmethod
-    def _transform(html):
+    def _transform(html: str):
+        """
+        Transforms html to events list
+
+        Parameters
+        ----------
+        html : str
+            html from time.ir
+
+        Returns
+        -------
+        events_list : list
+        """
         soup = BeautifulSoup(html, 'html.parser')
         # find events wrapper in html
         events = soup.find(class_='eventsCurrentMonthWrapper').find(class_="list-unstyled").findAll('li')
@@ -45,6 +75,13 @@ class EventsExtractor:
         return events_list
 
     def get_events(self):
+        """
+        Extracts events from time.ir
+
+        Returns
+        -------
+        events : pd.DataFrame
+        """
         html = self._extract()
         events_list = self._transform(html)
 
