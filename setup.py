@@ -33,6 +33,5 @@ setuptools.setup(
         'pandas',
         'jdatetime',
         'Unidecode',
-        'beautifulsoup4'
     ]
 )
